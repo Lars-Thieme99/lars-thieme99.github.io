@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lars [Lastname] | PhD student in Economics, UCL</title>
+  <meta name="description" content="Lars [Lastname] is a PhD student in Economics at University College London working on microeconomic theory and information economics.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b5e73'/%3E%3Cpath d='M6 24H16' stroke='white' stroke-opacity='.55' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6 24L16 9H26' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <style>
+    :root {
+      --paper: #fdfdfb;
+      --ink: #1a1d21;
+      --muted: #5b636b;
+      --hairline: #d9dde0;
+      --accent: #0b5e73;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #15181b;
+        --ink: #e6e8ea;
+        --muted: #9aa3ab;
+        --hairline: #2b3035;
+        --accent: #74c3d8;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "STIX Two Text", "STIXGeneral", Cambria, Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    p { margin: 0 0 1rem; }
+
+    /* Header: name, position, links, photo */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem;
+    }
+    .position {
+      font-size: 1.3125rem;
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--muted);
+      margin: 0;
+    }
+    .links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+    }
+    .photo {
+      width: 8rem;
+      height: 10rem;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+      background: var(--hairline);
+    }
+
+    /* The divider under the header is a concavification diagram */
+    .figure {
+      display: block;
+      width: 100%;
+      height: 2.5rem;
+      margin: 2.5rem 0;
+      overflow: visible;
+    }
+    .figure path { fill: none; vector-effect: non-scaling-stroke; }
+    .figure .value { stroke: var(--muted); stroke-width: 1; }
+    .figure .prior { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+    .figure .closure { stroke: var(--accent); stroke-width: 1.5; stroke-linejoin: round; }
+
+    /* Sections */
+    section { margin-top: 3.5rem; }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 1rem;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--muted);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* Papers */
+    .paper { margin-bottom: 1.5rem; }
+    .paper h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .paper h4 a { color: var(--ink); text-decoration-color: var(--accent); }
+    .paper .meta { font-size: 1rem; color: var(--muted); margin: 0.125rem 0 0.25rem; }
+    .paper summary { cursor: pointer; font-size: 1rem; color: var(--accent); width: fit-content; }
+    .paper details p {
+      font-size: 1rem;
+      margin: 0.5rem 0 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--hairline);
+    }
+
+    /* Teaching */
+    .courses { list-style: none; margin: 0; padding: 0; }
+    .courses li { display: flex; justify-content: space-between; gap: 1rem; }
+    .courses .year { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    footer { margin-top: 5rem; font-size: 0.875rem; color: var(--muted); }
+
+    @media (max-width: 34rem) {
+      main { padding-top: 2.5rem; }
+      header { flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; }
+      h1 { font-size: 2.25rem; }
+      .photo { width: 6.5rem; height: 8rem; }
+    }
+  </style>
+</head>
+<body>
+<!--
+  HOW TO EDIT THIS PAGE
+  1. Anything in [square brackets] is a placeholder. Replace it, brackets included.
+  2. Upload your photo as photo.jpg and your CV as cv.pdf, next to this file.
+     If there is no photo.jpg, the photo space simply disappears.
+  3. To add a paper, copy one block from <article class="paper"> to </article>.
+  4. To remove anything (a link, a section), delete its lines.
+-->
+<main>
+  <header>
+    <div>
+      <h1>Lars [Lastname]</h1>
+      <p class="position">PhD student in Economics<br>University College London</p>
+      <ul class="links">
+        <li><a href="mailto:[your-email]@ucl.ac.uk">Email</a></li>
+        <li><a href="cv.pdf">CV</a></li>
+        <li><a href="[google-scholar-link]">Google Scholar</a></li>
+        <li><a href="[linkedin-link]">LinkedIn</a></li>
+      </ul>
+    </div>
+    <img class="photo" src="photo.jpg" alt="Lars [Lastname]" width="128" height="160" onerror="this.remove()">
+  </header>
+
+  <!-- Divider: a concavification diagram (Kamenica and Gentzkow, 2011). Delete this svg block for a plain page. -->
+  <svg class="figure" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-labelledby="figure-title">
+    <title id="figure-title">Concavification: a step-shaped value function and its concave closure, as in Kamenica and Gentzkow (2011)</title>
+    <path class="value" d="M0 9.5H50M50 0.5H100"/>
+    <path class="prior" d="M30 9.5V4.1"/>
+    <path class="closure" d="M0 9.5L50 0.5H100"/>
+  </svg>
+
+  <p>I am a PhD student in Economics at University College London. My research is in microeconomic theory, particularly information economics and information design.</p>
+  <p>Before coming to UCL, I completed an MSc in Economics and Finance and an MA in Philosophy and Economics in Vienna, and a BSc in Economics at the University of Konstanz.</p>
+
+  <section id="research">
+    <h2>Research</h2>
+
+    <h3>Work in progress</h3>
+    <article class="paper">
+      <h4>[Title of your paper]</h4>
+      <p class="meta">[with Coauthor Name, or delete this line if you are the sole author]</p>
+      <details>
+        <summary>Abstract</summary>
+        <p>[Paste the abstract here.]</p>
+      </details>
+    </article>
+
+    <!--
+      When a paper is finished, add a "Working papers" heading above
+      "Work in progress" and list it like this, with the PDF uploaded
+      next to this file:
+
+      <h3>Working papers</h3>
+      <article class="paper">
+        <h4><a href="paper-title.pdf">Paper Title</a></h4>
+        <p class="meta">with Coauthor Name</p>
+        <details>
+          <summary>Abstract</summary>
+          <p>Abstract text.</p>
+        </details>
+      </article>
+    -->
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <h3>Teaching assistant, University College London</h3>
+    <ul class="courses">
+      <li><span>Game Theory (ECON0104)</span><span class="year">2026–27</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Last updated October 2026</p>
+  </footer>
+</main>
+</body>
+</html>
