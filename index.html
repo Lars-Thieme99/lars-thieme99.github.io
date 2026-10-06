@@ -18,6 +18,10 @@
       --hairline: #ffffff;
       --accent: #0ffff9;
       color-scheme: dark;
+      /* Where the text column starts. Centred up to 1280px wide; on wider screens it drifts left,
+         so the text starts about a fifth of the way across. Lower the 10vw to move it further left,
+         raise it to move it back towards the centre. */
+      --column-left: max(0px, min(50vw - 20rem, 12rem + 10vw));
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -33,7 +37,7 @@
 
     main {
       max-width: 40rem;
-      margin: 0 auto;
+      margin: 0 auto 0 var(--column-left);
       padding: 5rem 1.5rem 4rem;
     }
 
@@ -153,7 +157,7 @@
       bottom: 0;
       z-index: 1;
       max-width: 40rem;
-      margin: 0 auto;
+      margin: 0 auto 0 var(--column-left);
       padding: 0 1.5rem 1.1rem;
       color: var(--ink);
     }
