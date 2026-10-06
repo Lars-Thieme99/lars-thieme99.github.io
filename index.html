@@ -83,21 +83,8 @@
       object-fit: cover;
       border-radius: 2px;
       flex-shrink: 0;
-      background: var(--hairline);
+      background: transparent;
     }
-
-    /* The divider under the header is a concavification diagram */
-    .figure {
-      display: block;
-      width: 100%;
-      height: 2.5rem;
-      margin: 2.5rem 0;
-      overflow: visible;
-    }
-    .figure path { fill: none; vector-effect: non-scaling-stroke; }
-    .figure .value { stroke: var(--muted); stroke-width: 1; }
-    .figure .prior { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
-    .figure .closure { stroke: var(--accent); stroke-width: 1.5; stroke-linejoin: round; }
 
     /* Sections */
     section { margin-top: 3.5rem; }
@@ -138,7 +125,39 @@
     .courses li { display: flex; justify-content: space-between; gap: 1rem; }
     .courses .year { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-    footer { margin-top: 5rem; font-size: 0.875rem; color: var(--muted); }
+    /* Footer: the page ends on a photograph, with the footer lines on its darkened lower edge */
+    .photo-footer {
+      position: relative;
+      height: clamp(12rem, 28vw, 19rem);
+      margin-top: 0.5rem;
+      overflow: hidden;
+      font-size: 0.875rem;
+    }
+    .photo-footer img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 46%;
+    }
+    .photo-footer::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--paper) 0%, rgba(5, 19, 21, 0) 45%, rgba(5, 19, 21, 0.5) 78%, rgba(5, 19, 21, 0.85) 100%);
+    }
+    .footer-text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.1rem;
+      color: var(--ink);
+    }
+    .footer-text p { margin: 0 0 0.2rem; opacity: 0.9; }
 
     @media (max-width: 34rem) {
       main { padding-top: 2.5rem; }
@@ -149,7 +168,14 @@
   </style>
 </head>
 <body>
-
+<!--
+  HOW TO EDIT THIS PAGE
+  1. Anything in [square brackets] is a placeholder. Replace it, brackets included.
+  2. Upload your photo as photo.jpg and your CV as cv.pdf, next to this file.
+     If there is no photo.jpg, the photo space simply disappears.
+  3. To add a paper, copy one block from <article class="paper"> to </article>.
+  4. To remove anything (a link, a section), delete its lines.
+-->
 <main>
   <header>
     <div>
@@ -177,7 +203,7 @@
       <!--p class="meta">[with Coauthor Name, or delete this line if you are the sole author]</p>-->
       <details>
         <summary>Abstract</summary>
-        <p>We study competition in information design when information is costly. Two senders with opposed preferences each commit to a costly experiment to influence a receiver's action. We show that no informative pure-strategy equilibrium survives in finite signal spaces and characterize the unique symmetric equilibrium in closed form. In it, neither sender profits from the information he provides: each chooses an experiment that leaves his opponent indifferent to providing any, so competition is pure expenditure for the senders and pure gain for the receiver. As information becomes more expensive, each sender's experiment, and hence the joint experiment the receiver observes, becomes Blackwell less informative. Competition thus benefits the receiver, but decreasingly so as information costs increase. </p>
+        <p>We study competition in information design when information is costly. Two senders with opposed preferences each commit to a costly experiment to influence a receiver's action. We show that no informative pure-strategy equilibrium survives in finite signal spaces and characterize the unique symmetric equilibrium in closed form. In it, neither sender profits from the information he provides: each chooses an experiment that leaves his opponent indifferent to providing any, so competition is pure expenditure for the senders and pure gain for the receiver. As information becomes more expensive, each sender's experiment, and hence the joint experiment the receiver observes, becomes Blackwell less informative. Competition thus benefits the receiver, but decreasingly so as information costs increase.</p>
       </details>
     </article>
 
@@ -206,15 +232,19 @@
     </ul>
     <h3>Teaching Assistant, University of Vienna</h3>
     <ul class="courses">
-      <li><span> Microeconomics (BSc) </span><span class="year">2024–25</span></li>
-      <li><span> Applied Microeconomics (MSc) </span><span class="year">2025</span></li>
-      <li><span> Macroeconomics (BSc) </span><span class="year">2024</span></li>
+      <li><span>Microeconomics (BSc)</span><span class="year">2024–25</span></li>
+      <li><span>Applied Microeconomics (MSc)</span><span class="year">2025</span></li>
+      <li><span>Macroeconomics (BSc)</span><span class="year">2024</span></li>
     </ul>
   </section>
-
-  <footer>
-    <p>Last updated October 2026</p>
-  </footer>
 </main>
+
+<footer class="photo-footer">
+  <img src="footer-lake.jpg" alt="Lake at dusk with mountains on the horizon" width="2000" height="667" loading="lazy">
+  <div class="footer-text">
+    <p>Last updated October 2026</p>
+    <p>Photograph by Lars Thieme</p>
+  </div>
+</footer>
 </body>
 </html>
